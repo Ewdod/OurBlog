@@ -1,0 +1,29 @@
+﻿@model List<Post>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (var post in Model)
+{
+    <!-- Post preview-->
+    <div class="post-preview">
+        <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">
+            <h2 class="post-title">@post.Title</h2>
+        </a>
+        <div class="post-content mb-3">
+            @Html.Raw(post.Content)
+        </div>
+        <p class="post-meta">
+            Posted by
+            <a href="#!">Admin</a>
+            @*on September 24, 2023*@
+        </p>
+    </div>
+    <!-- Divider-->
+    <hr class="my-4" />
+}
+
+
+<!-- Pager-->
+<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
